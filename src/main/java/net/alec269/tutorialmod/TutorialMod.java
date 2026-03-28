@@ -1,6 +1,9 @@
 package net.alec269.tutorialmod;
 
 import com.mojang.logging.LogUtils;
+import net.alec269.tutorialmod.item.ModItems;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -21,8 +24,13 @@ public class TutorialMod {
    // Directly reference a slf4j logger
    private static final Logger LOGGER = LogUtils.getLogger();
    
+   //# Constructor
    public TutorialMod(FMLJavaModLoadingContext context) {
       IEventBus modEventBus = context.getModEventBus();
+      
+      // Ensure our DeferredRegister is registered in forge
+      ModItems.register(modEventBus);
+      
       // Register the commonSetup method for mod loading
       modEventBus.addListener(this::commonSetup);
       // Register ourselves for server and other game events we are interested in
@@ -35,9 +43,12 @@ public class TutorialMod {
    
    }
    
-   // Add the example block item to the building blocks tab
+   //# Add Items to vanilla creative tabs
    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-   
+      // ADD Mod-Items
+      if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+         event.accept(ModItems.SAPPHIRE);
+      }
    }
    
    // You can use SubscribeEvent and let the Event Bus discover methods to call
