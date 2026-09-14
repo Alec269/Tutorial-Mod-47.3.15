@@ -24,16 +24,16 @@ public class TutorialMod {
    public static final String MOD_ID = "tutorial_mod";
    // Directly reference a slf4j logger
    private static final Logger LOGGER = LogUtils.getLogger();
-   
-   //# Constructor
-   public TutorialMod(@NotNull FMLJavaModLoadingContext context) {
+
+   // # Constructor
+   public TutorialMod(FMLJavaModLoadingContext context) {
       IEventBus modEventBus = context.getModEventBus();
-      
-      //# Ensure our DeferredRegister is registered in forge
+
+      // # Ensure our DeferredRegister is registered in forge
       ModItems.register(modEventBus);
       ModBlocks.register(modEventBus);
       ModCreativeModeTabs.register(modEventBus);
-      
+
       // Register the commonSetup method for mod loading
       modEventBus.addListener(this::commonSetup);
       // Register ourselves for server and other game events we are interested in
@@ -41,34 +41,35 @@ public class TutorialMod {
       // Register the item to a creative tab
       modEventBus.addListener(this::addCreative);
    }
-   
+
    private void commonSetup(final FMLCommonSetupEvent event) {
-   
+
    }
-   
-   //# Add Items to vanilla creative tabs
+
+   // # Add Items to vanilla creative tabs
    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-   /*
-      # ADD Mod-Items To vanilla tabs
-      if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-         event.accept(ModItems.SAPPHIRE);
-         event.accept(ModItems.RAW_SAPPHIRE);
-      }
-   */
+      /*
+       * # ADD Mod-Items To vanilla tabs
+       * if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+       * event.accept(ModItems.SAPPHIRE);
+       * event.accept(ModItems.RAW_SAPPHIRE);
+       * }
+       */
    }
-   
+
    // You can use SubscribeEvent and let the Event Bus discover methods to call
    @SubscribeEvent
    public void onServerStarting(ServerStartingEvent event) {
-   
+
    }
-   
-   // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
+
+   // You can use EventBusSubscriber to automatically register all static methods
+   // in the class annotated with @SubscribeEvent
    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
    public static class ClientModEvents {
       @SubscribeEvent
       public static void onClientSetup(FMLClientSetupEvent event) {
-      
+
       }
    }
 }
