@@ -1,9 +1,9 @@
 package net.alec269.tutorialmod;
 
 import com.mojang.logging.LogUtils;
+import net.alec269.tutorialmod.Block.ModBlocks;
+import net.alec269.tutorialmod.item.ModCreativeModeTabs;
 import net.alec269.tutorialmod.item.ModItems;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -25,11 +26,13 @@ public class TutorialMod {
    private static final Logger LOGGER = LogUtils.getLogger();
    
    //# Constructor
-   public TutorialMod(FMLJavaModLoadingContext context) {
+   public TutorialMod(@NotNull FMLJavaModLoadingContext context) {
       IEventBus modEventBus = context.getModEventBus();
       
-      // Ensure our DeferredRegister is registered in forge
+      //# Ensure our DeferredRegister is registered in forge
       ModItems.register(modEventBus);
+      ModBlocks.register(modEventBus);
+      ModCreativeModeTabs.register(modEventBus);
       
       // Register the commonSetup method for mod loading
       modEventBus.addListener(this::commonSetup);
@@ -45,10 +48,13 @@ public class TutorialMod {
    
    //# Add Items to vanilla creative tabs
    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-      // ADD Mod-Items
+   /*
+      # ADD Mod-Items To vanilla tabs
       if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
          event.accept(ModItems.SAPPHIRE);
+         event.accept(ModItems.RAW_SAPPHIRE);
       }
+   */
    }
    
    // You can use SubscribeEvent and let the Event Bus discover methods to call
