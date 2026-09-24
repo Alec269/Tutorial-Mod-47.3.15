@@ -28,6 +28,7 @@ public class ModCreativeModeTabs {
             pOutput.accept(ModBlocks.DEEPSLATE_SAPPHIRE_ORE.get());
             pOutput.accept(ModBlocks.NETHERRACK_SAPPHIRE_ORE.get());
             pOutput.accept(ModBlocks.END_STONE_SAPPHIRE_ORE.get());
+            pOutput.accept(ModItems.METAL_DETECTOR.get());
          })
          .build()
    );

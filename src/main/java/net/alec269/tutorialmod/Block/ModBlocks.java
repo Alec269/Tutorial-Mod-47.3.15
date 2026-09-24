@@ -67,7 +67,7 @@ public class ModBlocks {
       )
    );
    
-   //
+   // ----------------------------------------------------------------------------------------------------- //
    private static <T extends Block> RegistryObject<T> registerblock(String name, Supplier<T> block) {
       RegistryObject<T> toReturn = BLOCKS.register(name, block);
       registerBlockItem(name, toReturn);
