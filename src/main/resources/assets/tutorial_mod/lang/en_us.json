@@ -12,5 +12,7 @@
   "block.tutorial_mod.sapphire_ore": "Sapphire Ore",
   "block.tutorial_mod.deepslate_sapphire_ore": "Deepslate Sapphire Ore",
   "block.tutorial_mod.netherrack_sapphire_ore": "Netherrack Sapphire Ore",
-  "block.tutorial_mod.end_stone_sapphire_ore": "EndStone Sapphire Ore"
+  "block.tutorial_mod.end_stone_sapphire_ore": "EndStone Sapphire Ore",
+
+  "block.tutorial_mod.sound_block": "Sound Block"
 }

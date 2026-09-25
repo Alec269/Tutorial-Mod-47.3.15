@@ -1,5 +1,6 @@
 package net.alec269.tutorialmod.Block;
 
+import net.alec269.tutorialmod.Block.custom.SoundBlock;
 import net.alec269.tutorialmod.TutorialMod;
 import net.alec269.tutorialmod.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -64,6 +65,13 @@ public class ModBlocks {
       () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.END_STONE)
          .strength(4f).requiresCorrectToolForDrops(),
          UniformInt.of(6, 10)
+      )
+   );
+   
+   public static
+   final RegistryObject<SoundBlock> SOUND_BLOCK = registerblock("sound_block",
+      () -> new SoundBlock(BlockBehaviour.Properties.copy(Blocks.JUKEBOX)
+         .strength(1f)
       )
    );
    
