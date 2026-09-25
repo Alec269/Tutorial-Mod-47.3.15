@@ -28,6 +28,12 @@ public class ModItems {
       )
    );
    
+   public static final RegistryObject<Item> STRAWBERRY = ITEMS.register(
+      "strawberry", () -> new Item(
+         new Item.Properties().food(ModFoods.STRAWBERRY)
+      )
+   );
+   
    //# register method
    public static void register(IEventBus eventBus) {
       ITEMS.register(eventBus);
